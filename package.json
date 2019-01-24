@@ -1,0 +1,32 @@
+{
+  "name": "nps-autocomplete-prompt",
+  "version": "0.0.0",
+  "description": "Autocomplete prompt for nps scripts",
+  "engines": {
+    "node": ">=8"
+  },
+  "bin": {
+    "nap": "./cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nps",
+    "autocomplete",
+    "prompt"
+  ],
+  "author": "Zill Ding",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "flat": "^4.1.0",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^6.2.1",
+    "inquirer-autocomplete-prompt": "^1.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.1",
+    "trim-newlines": "^2.0.0"
+  }
+}
