@@ -1,5 +1,6 @@
 # nps-autocomplete-prompt
 
+![](https://img.shields.io/github/license/zillding/nps-autocomplete-prompt.svg?style=flat-square)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 Autocomplete prompt for [nps](https://github.com/kentcdodds/nps)
