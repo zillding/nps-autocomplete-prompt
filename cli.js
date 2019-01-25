@@ -10,17 +10,19 @@ const fuzzy = require("fuzzy");
 const npmRunPath = require("npm-run-path");
 const spawn = require("cross-spawn");
 
+const error = chalk.red;
+
 try {
   execFileSync("nps", ["-v"], { env: npmRunPath.env() });
-} catch (error) {
-  console.error(`Could not find: nps`);
+} catch (_) {
+  console.error(error("Could not find: nps"));
   process.exit(1);
 }
 
 const packageScriptsPath = `${process.cwd()}/package-scripts.js`;
 
 if (!fs.existsSync(packageScriptsPath)) {
-  console.error(`Could not find: ${packageScriptsPath}`);
+  console.error(error(`Could not find: ${packageScriptsPath}`));
   process.exit(1);
 }
 
