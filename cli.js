@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
+const { execFileSync } = require("child_process");
 const flat = require("flat");
 const chalk = require("chalk");
 const inquirer = require("inquirer");
@@ -8,6 +9,13 @@ const inquirerAutocompletePrompt = require("inquirer-autocomplete-prompt");
 const fuzzy = require("fuzzy");
 const npmRunPath = require("npm-run-path");
 const spawn = require("cross-spawn");
+
+try {
+  execFileSync("nps", ["-v"], { env: npmRunPath.env() });
+} catch (error) {
+  console.error(`Could not find: nps`);
+  process.exit(1);
+}
 
 const packageScriptsPath = `${process.cwd()}/package-scripts.js`;
 
