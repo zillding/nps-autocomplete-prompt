@@ -29,7 +29,6 @@
     "npm-run-path": "^2.0.2"
   },
   "devDependencies": {
-    "prettier": "^1.16.1",
-    "trim-newlines": "^2.0.0"
+    "prettier": "^1.16.1"
   }
 }
