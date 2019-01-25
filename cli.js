@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const { exec } = require("child_process");
 const fs = require("fs");
 const flat = require("flat");
 const chalk = require("chalk");
 const inquirer = require("inquirer");
 const inquirerAutocompletePrompt = require("inquirer-autocomplete-prompt");
 const fuzzy = require("fuzzy");
-const trimNewLines = require("trim-newlines");
+const npmRunPath = require("npm-run-path");
+const spawn = require("cross-spawn");
 
 const packageScriptsPath = `${process.cwd()}/package-scripts.js`;
 
@@ -44,16 +44,5 @@ inquirer
   ])
   .then(answers => {
     const result = answers[name].split(separator)[0];
-    exec(`npm start ${result}`, (error, stdout, stderr) => {
-      if (error) {
-        console.error(error);
-        return;
-      }
-      if (stdout) {
-        console.log(trimNewLines(stdout));
-      }
-      if (stderr) {
-        console.log(trimNewLines(stderr));
-      }
-    });
+    spawn("nps", [result], { stdio: "inherit", env: npmRunPath.env() });
   });

@@ -21,10 +21,12 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
+    "cross-spawn": "^6.0.5",
     "flat": "^4.1.0",
     "fuzzy": "^0.1.3",
     "inquirer": "^6.2.1",
-    "inquirer-autocomplete-prompt": "^1.0.1"
+    "inquirer-autocomplete-prompt": "^1.0.1",
+    "npm-run-path": "^2.0.2"
   },
   "devDependencies": {
     "prettier": "^1.16.1",
