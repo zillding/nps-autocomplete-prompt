@@ -30,7 +30,7 @@ if (!fs.existsSync(packageScriptsPath)) {
 const { scripts } = require(packageScriptsPath);
 
 const name = "task";
-const separator = chalk.bold(" --- ");
+const separator = chalk.cyan(" --- ");
 
 inquirer.registerPrompt("autocomplete", inquirerAutocompletePrompt);
 
