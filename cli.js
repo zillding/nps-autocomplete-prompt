@@ -2,13 +2,14 @@
 
 const fs = require("fs");
 const { execFileSync } = require("child_process");
-const flat = require("flat");
 const chalk = require("chalk");
 const inquirer = require("inquirer");
 const inquirerAutocompletePrompt = require("inquirer-autocomplete-prompt");
 const fuzzy = require("fuzzy");
 const npmRunPath = require("npm-run-path");
 const spawn = require("cross-spawn");
+
+const processScripts = require("./processScripts");
 
 const error = chalk.red;
 
@@ -33,7 +34,7 @@ const separator = chalk.bold(" --- ");
 
 inquirer.registerPrompt("autocomplete", inquirerAutocompletePrompt);
 
-const tasks = flat(scripts);
+const tasks = processScripts(scripts);
 
 function searchTask(_, input) {
   const fuzzyResult = fuzzy.filter(input || "", Object.keys(tasks));
