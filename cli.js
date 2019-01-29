@@ -6,15 +6,14 @@ const chalk = require("chalk");
 const inquirer = require("inquirer");
 const inquirerAutocompletePrompt = require("inquirer-autocomplete-prompt");
 const fuzzy = require("fuzzy");
-const npmRunPath = require("npm-run-path");
-const spawn = require("cross-spawn");
+const execa = require("execa");
 
 const processScripts = require("./processScripts");
 
 const error = chalk.red;
 
 try {
-  execFileSync("nps", ["-v"], { env: npmRunPath.env() });
+  execa.sync("nps", ["-v"]);
 } catch (_) {
   console.error(error("Could not find: nps"));
   process.exit(1);
@@ -55,5 +54,8 @@ inquirer
   ])
   .then(answers => {
     const result = answers[name].split(separator)[0];
-    spawn("nps", [result], { stdio: "inherit", env: npmRunPath.env() });
+    execa.shell(`nps ${result}`, {
+      stdout: process.stdout,
+      stderr: process.stderr
+    });
   });
