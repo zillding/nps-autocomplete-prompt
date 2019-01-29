@@ -7,6 +7,7 @@ const scripts = {
     description: "unit test"
   },
   build: {
+    default: "webpack",
     webpack: "webpack",
     rollup: "rollup"
   }
@@ -16,6 +17,7 @@ test("processScripts", () => {
   expect(processScripts(scripts)).toEqual({
     lint: "eslint",
     test: "unit test",
+    build: "webpack",
     "build.webpack": "webpack",
     "build.rollup": "rollup"
   });
