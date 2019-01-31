@@ -8,32 +8,23 @@ const inquirerAutocompletePrompt = require("inquirer-autocomplete-prompt");
 const fuzzy = require("fuzzy");
 const execa = require("execa");
 
+const loadScripts = require("./loadScripts");
 const processScripts = require("./processScripts");
-
-const error = chalk.red;
 
 try {
   execa.sync("nps", ["-v"]);
 } catch (_) {
-  console.error(error("Could not find: nps"));
+  console.error(chalk.red("Could not find: nps"));
   process.exit(1);
 }
 
-const packageScriptsPath = `${process.cwd()}/package-scripts.js`;
-
-if (!fs.existsSync(packageScriptsPath)) {
-  console.error(error(`Could not find: ${packageScriptsPath}`));
-  process.exit(1);
-}
-
-const { scripts } = require(packageScriptsPath);
+const scripts = loadScripts();
+const tasks = processScripts(scripts);
 
 const name = "task";
 const separator = chalk.cyan(" --- ");
 
 inquirer.registerPrompt("autocomplete", inquirerAutocompletePrompt);
-
-const tasks = processScripts(scripts);
 
 function searchTask(_, input) {
   const fuzzyResult = fuzzy.filter(input || "", Object.keys(tasks));

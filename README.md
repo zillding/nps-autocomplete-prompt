@@ -27,6 +27,7 @@ yarn global add nps-autocomplete-prompt
 
 ## Usage
 
-From project which has nps installed and contains `package-scripts.js` file:
+From project which has nps installed and contains package scripts file
+(`package-scripts.js` or `package-scripts.yml`):
 
 `nap`
