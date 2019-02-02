@@ -11,6 +11,7 @@
   },
   "scripts": {
     "prettier": "prettier --write '*.{js,json,md}'",
+    "lint": "eslint .",
     "test": "jest"
   },
   "keywords": [
@@ -26,7 +27,12 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,md}": [
+    "*.js": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ],
+    "*.{json,md}": [
       "prettier --write",
       "git add"
     ]
