@@ -7,6 +7,8 @@
 
 Autocomplete prompt for [nps](https://github.com/kentcdodds/nps)
 
+<img width="600" src="./demo.svg">
+
 ## Install
 
 Install with `npm`:
