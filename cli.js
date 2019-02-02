@@ -45,8 +45,12 @@ inquirer
   ])
   .then(answers => {
     const result = answers[name].split(separator)[0];
-    execa.shell(`nps ${result}`, {
-      stdout: process.stdout,
-      stderr: process.stderr
-    });
+    execa
+      .shell(`nps ${result}`, {
+        stdout: process.stdout,
+        stderr: process.stderr
+      })
+      .catch(({ code }) => {
+        process.exit(code);
+      });
   });
