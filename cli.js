@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
-const { execFileSync } = require("child_process");
 const chalk = require("chalk");
 const inquirer = require("inquirer");
 const inquirerAutocompletePrompt = require("inquirer-autocomplete-prompt");
