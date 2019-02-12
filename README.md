@@ -7,7 +7,7 @@
 
 Autocomplete prompt for [nps](https://github.com/kentcdodds/nps)
 
-<img width="600" src="./demo.svg">
+<img width="600" src="https://cdn.jsdelivr.net/gh/zillding/nps-autocomplete-prompt/demo.svg">
 
 ## Install
 
