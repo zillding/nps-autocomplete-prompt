@@ -1,6 +1,6 @@
 {
   "name": "nps-autocomplete-prompt",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Autocomplete prompt for nps scripts",
   "repository": "github:zillding/nps-autocomplete-prompt",
   "engines": {
