@@ -43,7 +43,7 @@
     "filter-obj": "^1.1.0",
     "flat": "^4.1.0",
     "fuzzy": "^0.1.3",
-    "inquirer": "^6.2.1",
+    "inquirer": "^6.2.2",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "js-yaml": "^3.12.1",
     "map-obj": "^3.0.0"
@@ -51,8 +51,8 @@
   "devDependencies": {
     "eslint": "^5.13.0",
     "husky": "^1.3.1",
-    "jest": "^24.0.0",
-    "lint-staged": "^8.1.2",
-    "prettier": "^1.16.1"
+    "jest": "^24.1.0",
+    "lint-staged": "^8.1.4",
+    "prettier": "^1.16.4"
   }
 }
