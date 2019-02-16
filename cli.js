@@ -16,6 +16,21 @@ try {
   process.exit(1);
 }
 
+function npsExec(str) {
+  execa
+    .shell(`nps ${str}`, {
+      stdout: process.stdout,
+      stderr: process.stderr
+    })
+    .catch(({ code }) => {
+      process.exit(code);
+    });
+}
+
+if (process.argv.length > 2) {
+  return npsExec(process.argv.slice(2).join(" "));
+}
+
 const scripts = loadScripts();
 const tasks = processScripts(scripts);
 
@@ -43,12 +58,5 @@ inquirer
   ])
   .then(answers => {
     const result = answers[name].split(separator)[0];
-    execa
-      .shell(`nps ${result}`, {
-        stdout: process.stdout,
-        stderr: process.stderr
-      })
-      .catch(({ code }) => {
-        process.exit(code);
-      });
+    npsExec(result);
   });

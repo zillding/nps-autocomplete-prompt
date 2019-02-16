@@ -34,3 +34,11 @@ From project which has nps installed and contains package scripts file
 (`package-scripts.js` or `package-scripts.yml`):
 
 `nap`
+
+Any additonal cli parameters will be passed to nps and executed directly.
+
+`nap lint` is equivalent to `nps lint`
+
+## Similar package
+
+- [nps-i](https://www.npmjs.com/package/nps-i)
