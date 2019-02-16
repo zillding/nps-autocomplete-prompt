@@ -60,3 +60,7 @@ inquirer
     const result = answers[name].split(separator)[0];
     npsExec(result);
   });
+
+process.on("SIGINT", () => {
+  process.exit();
+});
