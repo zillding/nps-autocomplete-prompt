@@ -19,8 +19,7 @@ try {
 function npsExec(str) {
   execa
     .shell(`nps ${str}`, {
-      stdout: process.stdout,
-      stderr: process.stderr
+      stdio: "inherit"
     })
     .catch(({ code }) => {
       process.exit(code);
