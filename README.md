@@ -1,6 +1,6 @@
 # nps-autocomplete-prompt
 
-![](https://img.shields.io/travis/zillding/nps-autocomplete-prompt.svg?style=flat-square)
+![](https://img.shields.io/travis/zillding/nps-autocomplete-prompt/master.svg?style=flat-square)
 ![](https://img.shields.io/npm/v/nps-autocomplete-prompt.svg?style=flat-square)
 ![](https://img.shields.io/github/license/zillding/nps-autocomplete-prompt.svg?style=flat-square)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
