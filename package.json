@@ -10,7 +10,7 @@
     "nap": "./cli.js"
   },
   "scripts": {
-    "start": "./cli.js",
+    "start": "nps",
     "test": "nps test"
   },
   "keywords": [

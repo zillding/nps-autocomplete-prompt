@@ -1,6 +1,6 @@
 module.exports = {
   scripts: {
-    default: "nps test",
+    default: "./cli.js",
     prettier: "prettier --write '*.{js,json,md}'",
     lint: "eslint .",
     test: {
