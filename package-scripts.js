@@ -8,7 +8,10 @@ module.exports = {
       watch: "jest --watch"
     },
     demo: {
-      hello: "echo hello",
+      hello: {
+        script: "echo hello",
+        description: "print hello"
+      },
       world: "echo world"
     }
   }

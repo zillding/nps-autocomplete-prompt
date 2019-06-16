@@ -1,22 +1,30 @@
 const flat = require("flat");
-const mapObj = require("map-obj");
-const filterObj = require("filter-obj");
 
 function processScripts(scripts) {
   const flatted = flat(scripts);
-  const mapped = mapObj(flatted, (key, value) => {
+
+  const mapped = {};
+  Object.keys(flatted).forEach(key => {
+    let finalKey = key;
+    let finalValue = flatted[key];
     if (key.endsWith(".default")) {
-      const newKey = key.replace(/.default$/, "");
-      return [newKey, value];
+      finalKey = key.replace(/.default$/, "");
     }
     if (key.endsWith(".script")) {
-      const newKey = key.replace(/.script$/, "");
-      const newValue = flatted[`${newKey}.description`] || value;
-      return [newKey, newValue];
+      finalKey = key.replace(/.script$/, "");
+      const description = flatted[`${finalKey}.description`];
+      finalValue = description ? [description, flatted[key]] : flatted[key];
     }
-    return [key, value];
+    mapped[finalKey] = finalValue;
   });
-  return filterObj(mapped, key => !key.endsWith("description"));
+
+  const result = {};
+  Object.keys(mapped)
+    .filter(key => !key.endsWith("description"))
+    .forEach(key => {
+      result[key] = mapped[key];
+    });
+  return result;
 }
 
 module.exports = processScripts;
