@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "nps",
-    "test": "nps test"
+    "test": "nps lint test"
   },
   "keywords": [
     "nps",
