@@ -16,7 +16,7 @@ const scripts = {
 test("processScripts", () => {
   expect(processScripts(scripts)).toEqual({
     lint: "eslint",
-    test: "unit test",
+    test: ["unit test", "jest"],
     build: "webpack",
     "build.webpack": "webpack",
     "build.rollup": "rollup"

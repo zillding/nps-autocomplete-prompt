@@ -38,11 +38,18 @@ const separator = chalk.cyan(" --- ");
 
 inquirer.registerPrompt("autocomplete", inquirerAutocompletePrompt);
 
+function taskInfo(info) {
+  if (typeof info === "string") {
+    return chalk.dim(info);
+  }
+  return `${info[0]} - ${chalk.dim(info[1])}`;
+}
+
 function searchTask(_, input) {
   const fuzzyResult = fuzzy.filter(input || "", Object.keys(tasks));
   const result = fuzzyResult.map(el => el.original);
   return Promise.resolve(
-    result.map(key => `${key}${separator}${chalk.dim(tasks[key])}`)
+    result.map(key => `${key}${separator}${taskInfo(tasks[key])}`)
   );
 }
 

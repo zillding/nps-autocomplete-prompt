@@ -12,7 +12,8 @@ function processScripts(scripts) {
     }
     if (key.endsWith(".script")) {
       finalKey = key.replace(/.script$/, "");
-      finalValue = flatted[`${finalKey}.description`] || flatted[key];
+      const description = flatted[`${finalKey}.description`];
+      finalValue = description ? [description, flatted[key]] : flatted[key];
     }
     mapped[finalKey] = finalValue;
   });
