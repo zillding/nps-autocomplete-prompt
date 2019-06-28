@@ -17,13 +17,11 @@ try {
 }
 
 function npsExec(str) {
-  execa
-    .shell(`nps ${str}`, {
-      stdio: "inherit"
-    })
-    .catch(({ code }) => {
-      process.exit(code);
-    });
+  execa("nps", [str], {
+    stdio: "inherit"
+  }).catch(({ exitCode }) => {
+    process.exit(exitCode);
+  });
 }
 
 if (process.argv.length > 2) {
