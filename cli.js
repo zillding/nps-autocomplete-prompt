@@ -10,7 +10,9 @@ const loadScripts = require("./loadScripts");
 const processScripts = require("./processScripts");
 
 try {
-  execa.sync("nps", ["-v"]);
+  execa.sync("nps", ["-v"], {
+    preferLocal: true
+  });
 } catch (_) {
   console.error(chalk.red("Could not find: nps"));
   process.exit(1);
@@ -18,6 +20,7 @@ try {
 
 function npsExec(str) {
   execa("nps", [str], {
+    preferLocal: true,
     stdio: "inherit"
   }).catch(({ exitCode }) => {
     process.exit(exitCode);
